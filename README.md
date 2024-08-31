@@ -12,4 +12,13 @@
 
   Go to localhost:3000
 
+  Docker Container:
+  git clone https://github.com/mohsen-abbas/node-express-hello-world.git
+  cd node-express-hello-world
+  docker build -t node-express-hello-world .
+  docker run -p 3000:3000 node-express-hello-world
+  curl http://localhost:3000
+
+  You should see the output "Hello World!" as the response.
+
 ```  
