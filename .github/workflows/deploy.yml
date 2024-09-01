@@ -62,7 +62,7 @@ jobs:
       run: |-
         sed -e "s|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world:${{ github.sha }}|" ./kubernetes/deploy.yaml
 
-    - name: Apply Deployment to GKE
+    - name: Apply Deployment to GKE Cluster
       run: |
         cat ./kubernetes/deploy.yaml
         kubectl apply -f ./kubernetes/deploy.yaml
