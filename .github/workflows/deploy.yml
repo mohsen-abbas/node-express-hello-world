@@ -64,7 +64,6 @@ jobs:
 
     - name: Apply Deployment to GKE
       run: |
-        cat ./kubernetes/deploy.yaml
         kubectl apply -f ./kubernetes/
 
     - name: Force Deployment Rollout
