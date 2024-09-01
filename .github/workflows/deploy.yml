@@ -60,5 +60,5 @@ jobs:
 
     - name: Deploy on the GKE
       run: |-
-        sed -i -e "s|${DOCKER_IMG_TAG}|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world_service:${{ github.sha }}|" ./kubernetes/deployment.yaml
+        sed -i -e "s|${DOCKER_IMG_TAG}|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world_service:${{ github.sha }}|" ./kubernetes/deploy.yaml
         kubectl apply -f ./kubernetes/
