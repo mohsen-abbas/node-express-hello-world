@@ -38,6 +38,16 @@ spec:
         args: [". /vault/secrets/config && node app.js"]
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            cpu: "0.1"
+            memory: "200Mi"
+          limits:
+            cpu: "0.2"
+            memory: "250Mi"
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
         env:
         - name: ENVIRONMENT
           value: "production"
