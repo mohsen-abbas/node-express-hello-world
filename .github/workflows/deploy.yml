@@ -18,6 +18,7 @@ jobs:
       with:
         project_id: ${{ secrets.GCP_PROJECT }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true # This line ensures the credentials are used as default
 
     - name: Authenticate to GKE
       run: |
@@ -32,4 +33,3 @@ jobs:
       run: |
         kubectl apply -f k8s/deployment.yml
         kubectl set image deployment/hello-world hello-world=gcr.io/${{ secrets.GCP_PROJECT }}/hello-world-service:$GITHUB_SHA
-
