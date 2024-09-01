@@ -67,4 +67,4 @@ jobs:
         kubectl apply -f ./kubernetes/
 
     - name: Force Deployment Rollout
-      run: kubectl rollout restart deployment.apps/hello-world-deployment
+      run: kubectl rollout restart deployment.apps/hello-world-deployment -n demo-app
