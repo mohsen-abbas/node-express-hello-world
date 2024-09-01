@@ -31,7 +31,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/books_management_service:${{ github.sha }}
+        tags: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world_service:${{ github.sha }}
 
   setup-and-deploy:
     needs: [create-image-and-push-to-gcr]
@@ -60,5 +60,5 @@ jobs:
 
     - name: Deploy on the GKE
       run: |-
-        sed -i -e 's/DOCKER_IMG_TAG/'${{ github.sha }}'/' ./kubernetes/book-mgmt-api-deploy.yaml
+        sed -i -e "s|${DOCKER_IMG_TAG}|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world_service:${{ github.sha }}|" ./kubernetes/deployment.yaml
         kubectl apply -f ./kubernetes/
