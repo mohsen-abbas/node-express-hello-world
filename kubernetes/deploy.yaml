@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hello-world-container
-          image: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world:${DOCKER_IMG_TAG}
+          image: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world
           ports:
             - containerPort: 8080
           env:
