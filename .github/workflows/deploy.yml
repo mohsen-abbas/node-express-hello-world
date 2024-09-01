@@ -65,7 +65,7 @@ jobs:
     - name: Apply Deployment to GKE
       run: |
         cat ./kubernetes/deploy.yaml
-        kubectl apply -f ./kubernetes/deploy.yaml
+        kubectl apply -f ./kubernetes/
 
     - name: Force Deployment Rollout
       run: kubectl rollout restart deployment.apps/hello-world-deployment
