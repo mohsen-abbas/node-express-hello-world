@@ -3,7 +3,7 @@ name: GKE Deploy
 on:
   push:
     branches:
-    - main
+    - master
 
 jobs:
   build:
