@@ -60,7 +60,7 @@ jobs:
 
     - name: Update Image Tag in Deployment
       run: |-
-        sed -i -e "s|${DOCKER_IMG_TAG}|${{ github.sha }}|" ./kubernetes/deploy.yaml
+        sed -e "s|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world:${{ github.sha }}|" ./kubernetes/deploy.yaml
 
     - name: Apply Deployment to GKE
       run: |
