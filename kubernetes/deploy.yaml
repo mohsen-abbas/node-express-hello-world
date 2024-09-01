@@ -15,6 +15,7 @@ spec:
       labels:
         app: hello-world
     spec:
+      serviceAccountName: my-demo-sa@my-demo-project-434216.iam.gserviceaccount.com
       containers:
         - name: hello-world-container
           image: us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello-world
