@@ -51,6 +51,9 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+        # Fetch the latest changes from the remote repository and merge them
+        git pull origin master
+
         # Add the updated deployment file to the staging area
         git add ./kubernetes/deploy.yaml
 
