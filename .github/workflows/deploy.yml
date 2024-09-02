@@ -50,6 +50,8 @@ jobs:
       run: |-
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+        # Add the updated deployment file to the staging area
         git add ./kubernetes/deploy.yaml
 
         # Only commit if there are changes
@@ -79,4 +81,4 @@ jobs:
     - name: Sync ArgoCD Application
       run: |
         argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USER }} --password ${{ secrets.ARGOCD_PASSWORD }} --insecure
-        argocd app sync hello-world-app
+        argocd app sync ${{ secrets.ARGOCD_APP }}
