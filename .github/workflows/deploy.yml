@@ -42,6 +42,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with:
+        repository: mohsen-abbas/node-express-hello-world-k8s
+        ref: main
 
     - name: Update Image Tag in Deployment
       run: |-
