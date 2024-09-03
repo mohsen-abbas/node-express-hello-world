@@ -50,6 +50,7 @@ jobs:
     - name: Update Image Tag in Deployment
       run: |-
         sed -i -e "s|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:[^ ]*|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:${{ github.sha }}|" ./kubernetes/deploy.yaml
+
     - name: Commit and Push Changes
       run: |-
         git config --global user.name "github-actions[bot]"
