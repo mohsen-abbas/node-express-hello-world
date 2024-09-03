@@ -45,6 +45,7 @@ jobs:
       with:
         repository: mohsen-abbas/node-express-hello-world-k8s
         ref: main
+        token: ${{ secrets.PAT_TOKEN }}
 
     - name: Update Image Tag in Deployment
       run: |-
