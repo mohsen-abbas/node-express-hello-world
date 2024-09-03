@@ -64,7 +64,7 @@ jobs:
         # Only commit if there are changes
         if ! git diff-index --quiet HEAD; then
           git commit -m "Update image tag to ${{ github.sha }}"
-          git push
+          git push https://${{ secrets.PAT_TOKEN }}@github.com/mohsen-abbas/node-express-hello-world-k8s.git main
         else
           echo "No changes detected, skipping commit."
         fi
