@@ -69,3 +69,5 @@ jobs:
         else
           echo "No changes detected, skipping commit."
         fi
+    - name: Force Scale Deployment
+      run: kubectl scale deployment hello-world-deployment --replicas=0 -n demo-app
