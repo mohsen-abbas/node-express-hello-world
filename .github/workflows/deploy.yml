@@ -47,11 +47,6 @@ jobs:
         ref: main
         token: ${{ secrets.PAT_TOKEN }}
 
-    - name: Authenticate to Google Cloud
-      uses: google-github-actions/auth@v1
-      with:
-        credentials_json: ${{ secrets.GCP_SA_KEY }}
-
     - name: Update Image Tag in Deployment
       run: |-
         sed -i -e "s|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:[^ ]*|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:${{ github.sha }}|" ./kubernetes/deploy.yaml
@@ -74,5 +69,3 @@ jobs:
         else
           echo "No changes detected, skipping commit."
         fi
-    - name: Force Scale Deployment
-      run: kubectl scale deployment hello-world-deployment --replicas=0 -n demo-app
