@@ -47,6 +47,11 @@ jobs:
         ref: main
         token: ${{ secrets.PAT_TOKEN }}
 
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: ${{ secrets.GCP_SA_KEY }}
+
     - name: Update Image Tag in Deployment
       run: |-
         sed -i -e "s|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:[^ ]*|us-central1-docker.pkg.dev/my-demo-project-434216/my-demo-registry/hello_world:${{ github.sha }}|" ./kubernetes/deploy.yaml
