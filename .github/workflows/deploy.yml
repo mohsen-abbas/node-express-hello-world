@@ -2,7 +2,7 @@ name: Docker build and Deploy
 
 on:
   push:
-    branches: [master]
+    branches: [feature/test]
 
 jobs:
   create-image-and-push-to-gcr:
