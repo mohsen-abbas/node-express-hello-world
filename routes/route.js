@@ -1,10 +1,5 @@
-exports.home = function(req, res, podName, podIP, vaultUsername, vaultPassword) {
-  res.render('home', {
-      podName: podName,
-      podIP: podIP,
-      vaultUsername: vaultUsername,
-      vaultPassword: vaultPassword
-  });
+exports.home = function(req, res, podName, podIP) {
+  res.render('home', { podName: podName, podIP: podIP });
 };
 
 exports.login = function(req, res) {
