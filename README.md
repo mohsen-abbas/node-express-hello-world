@@ -19,6 +19,6 @@
   docker run -p 3000:3000 node-express-hello-world
   curl http://localhost:3000
 
-  You should see the output "Hello World!" as the response.
+  You should see the output "Hello World from pod hello-world-deployment-$random_num with IP $IP" as the response.
 
 ```  
